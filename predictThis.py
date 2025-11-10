@@ -4,7 +4,7 @@ import numpy as np
 
 model = load_model("dog_cat_rna_basic.h5")
 
-img_path = "img_1.png"
+img_path = "img.png"
 img = image.load_img(img_path, target_size=(64, 64))
 
 img_array = image.img_to_array(img)

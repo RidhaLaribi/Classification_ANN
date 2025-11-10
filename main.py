@@ -2,7 +2,7 @@ import tensorflow as tf
 import keras
 from keras import layers,models
 
-DATA_DIR = "dataset"
+DATA_DIR = "dog-cat-full-dataset\data"
 IMG_SIZE = (64, 64)
 BATCH = 32
 EPOCHS = 15
@@ -14,7 +14,7 @@ train_ds = keras.utils.image_dataset_from_directory(
 )
 
 val_ds = keras.utils.image_dataset_from_directory(
-    DATA_DIR + "/val",
+    DATA_DIR + "/test",
     image_size=IMG_SIZE,
     batch_size=BATCH
 )
@@ -45,4 +45,4 @@ model.summary()
 
 history = model.fit(train_ds, epochs=EPOCHS, validation_data=val_ds)
 
-model.save("dog_cat_rna_basic.h5")
+#model.save("dog_cat_rna_basic.h5")
