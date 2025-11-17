@@ -40,9 +40,10 @@ def browse_image():
     if confidence > 0.5:
         result_label.config(text="🐶 DOG", fg="green")
         confidence_label.config(text=f"Confiance: {confidence:.2%}")
-    else:
+    elif confidence < 0.5:
         result_label.config(text="🐱 CAT", fg="blue")
         confidence_label.config(text=f"Confiance: {(1-confidence):.2%}")
+
 
 # Interface utilisateur améliorée
 root = Tk()

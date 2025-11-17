@@ -98,7 +98,7 @@ history = model.fit(
 )
 
 # Sauvegarde
-model.save("dog_cat_cnn_improved.h5")
+model.save("dog_cat_cnn_improved2.h5")
 
 # Visualisation des performances
 plt.figure(figsize=(12, 4))
