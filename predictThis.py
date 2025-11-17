@@ -28,18 +28,19 @@ def browse_image():
     img_label.config(image=tk_img)
     img_label.image = tk_img
 
-    # ---- Your original prediction logic ----
+
     img = image.load_img(img_path, target_size=IMG_SIZE)
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = img_array / 255.0
 
     prediction = model.predict(img_array)
+    confidence = prediction[0][0]
 
-    if prediction[0][0] > 0.5:
-        result_label.config(text=f"🐶 DOG  ({prediction[0][0]:.2f})", fg="green")
-    else:
-        result_label.config(text=f"🐱 CAT  ({prediction[0][0]:.2f})", fg="blue")
+    if confidence > 0.5:
+        result_label.config(text=f"🐶 DOG :{confidence:.2%}", fg="green")
+    elif confidence < 0.5:
+        result_label.config(text=f"🐱 CAT :{(1 - confidence):.2%}", fg="blue")
 
 
 # ---- UI ----
